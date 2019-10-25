@@ -1,33 +1,19 @@
-// Dependencies
-const { After, Before, BeforeAll, AfterAll } = require('cucumber');
+const { After, AfterAll, Before, BeforeAll } = require('cucumber');
 const scope = require('./support/scope');
-const app = require('../app')
+const app = require("../app");
 
-Before(async () => {
-    // You can clean up database models here
-});
-
-BeforeAll(async () => {
-    scope.server = app.server;
+Before(async () =>{
+   // Lógica para limpar o banco de dados após o teste
 });
 
 After(async () => {
-    // Here we check if a scenario has instantiated a browser and a current page
-    if (scope.browser && scope.context.currentPage) {
-        // if it has, find all the cookies, and delete them
-        const cookies = await scope.context.currentPage.cookies();
-        if (cookies && cookies.length > 0) {
-            await scope.context.currentPage.deleteCookie(...cookies);
-        }
-        // close the web page down
+
+    if(scope.browser && scope.context.currentPage){
         await scope.context.currentPage.close();
-        // wipe the context's currentPage value
         scope.context.currentPage = null;
     }
 });
 
 AfterAll(async () => {
-    // If there is a browser window open, then close it
-    if (scope.browser) await scope.browser.close();
-    scope.server.close();
+    app.server.close();
 });

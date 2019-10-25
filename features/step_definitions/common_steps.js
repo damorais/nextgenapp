@@ -1,6 +1,7 @@
 const { Given, When, Then } = require('cucumber');
 const scope = require('../support/scope');
 const assert = require('assert');
+const expect = require('expect-puppeteer');
 const { visitHomePage } = require('../support/actions');
 
 // let headless = false;
@@ -20,17 +21,19 @@ const { visitHomePage } = require('../support/actions');
 // };
 
 
-const takeScreenshot = async url => {
+// const takeScreenshot = async url => {
     
-    //await scope.context.currentPage.screenshot({path: 'pagina.png'});
+//     //await scope.context.currentPage.screenshot({path: 'pagina.png'});
     
     
-    console.log(await scope.context.currentPage.$eval('body', el => el.innerText));
+//     console.log(await scope.context.currentPage.$eval('body', el => el.innerText));
 
-    return "";
-};
+//     return "";
+// };
 
 When('Eu acesso a página inicial', visitHomePage);
 
-Then('Devo ver a mensagem {string}', takeScreenshot);
+Then('Devo ver a mensagem {string}', async message => {
+    await expect(scope.context.currentPage).toMatch("message");
+});
 

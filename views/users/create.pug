@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  form(method='POST' action='/usuarios')
+    div.form-group
+      label(for='nome') Name:
+      input#nome.form-control(type='text', placeholder='Seu Nome' name='nome')
+    div.form-group
+      label(for='sobrenome') Email:
+      input#sobrenome.form-control(type='text', placeholder='sobrenome' name='sobrenome')
+    button.btn.btn-primary(type='submit') Salvar
