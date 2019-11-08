@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var topicosRouter = require('./routes/topicos');
 
 var app = express();
 
@@ -20,6 +21,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/usuarios', usersRouter);
+app.use('/topicos', topicosRouter);
+
+// app.get('/', (req, res) => {
+//   res.status(200).send('Hello World!')
+// })
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -30,7 +36,7 @@ var debug = require('debug')('myapp:server');
 var http = require('http');
 
 var server = app.listen(3000, () => {
-    console.log("It's alive!!!! HUAHUAHUAHUAHUA");
+    
 });
 
 server.on('error', onError);

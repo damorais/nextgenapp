@@ -9,7 +9,8 @@ const World = function(){
     scope.host = "http://localhost:3000";
 
     scope.map_of_pages = {
-        'Novo Tópico': scope.host + '/usuarios'
+        'Novo Tópico': scope.host + '/topicos/create',
+        'Tópicos': scope.host + '/topicos'
     }
 };
 

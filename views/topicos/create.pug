@@ -1,0 +1,14 @@
+block content
+    h1 Criar Novo Tópico
+
+    form(method='POST')
+        div.form-group
+            label(for='titulo') Título:
+            input#titulo.form-control(type='text', placeholder='Qual é o seu tópico?' name='titulo')
+        div.form-group
+            label(for='mensagem') Mensagem:
+            input#mensagem.form-control(type='text', placeholder='Qual a sua dúvida?' name='mensagem')
+
+        button.btn.btn-primary(type='submit') Salvar
+
+        
