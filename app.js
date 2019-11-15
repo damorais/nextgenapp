@@ -23,9 +23,14 @@ app.use('/', indexRouter);
 app.use('/usuarios', usersRouter);
 app.use('/topicos', topicosRouter);
 
+
+app.get('/not-found', (req, res) =>{
+  res.send("item not found");
+});
 // app.get('/', (req, res) => {
 //   res.status(200).send('Hello World!')
 // })
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,9 +1,9 @@
 extends ../layout
 
 block content
-  h2 Novo Usuário
+  h2 Edição de Usuário
 
-  form(method='POST' action='/usuarios/')
+  form(method='POST' action='/usuarios/update/' + model.id)
     div.form-group
         label(for='nome') Nome:
         input#nome.form-control(type='text', placeholder='Seu Nome' name='nome' value= model.nome)

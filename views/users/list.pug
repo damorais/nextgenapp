@@ -6,11 +6,11 @@ block content
             th Nome
             th Sobrenome
             th 
-        each usuario in usuarios
+        each usuario in model
             tr
                 td #{usuario.nome}
                 td #{usuario.sobrenome}
                 td 
-                    a(href='/usuarios/' + usuario.id) Editar
+                    a(href='/usuarios/edit/' + usuario.id) Editar
 
     a(href='/usuarios/create') Novo Usuário
