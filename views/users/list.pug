@@ -11,6 +11,8 @@ block content
                 td #{usuario.nome}
                 td #{usuario.sobrenome}
                 td 
-                    a(href='/usuarios/edit/' + usuario.id) Editar
+                    a(href='/usuarios/edit/' + usuario._id) Editar
+                    |  | 
+                    a(href='/usuarios/delete/' + usuario._id) Excluir
 
     a(href='/usuarios/create') Novo Usuário

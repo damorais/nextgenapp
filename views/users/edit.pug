@@ -3,7 +3,7 @@ extends ../layout
 block content
   h2 Edição de Usuário
 
-  form(method='POST' action='/usuarios/update/' + model.id)
+  form(method='POST' action='/usuarios/update/' + model._id)
     div.form-group
         label(for='nome') Nome:
         input#nome.form-control(type='text', placeholder='Seu Nome' name='nome' value= model.nome)
